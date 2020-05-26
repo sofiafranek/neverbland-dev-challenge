@@ -1,0 +1,19 @@
+.display-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.showcard {
+  margin-right: 0;
+}
+
+@media (min-width: 500px) {
+  .display-flex {
+    flex-direction: row;
+  }
+  .showcard {
+    margin-right: 25px;
+    margin-bottom: 50px;
+  }
+}
