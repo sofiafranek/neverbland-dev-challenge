@@ -1,32 +1,14 @@
 import React, { Component } from 'react';
-import { getShows } from './../../Services/shows';
 
 import ShowCard from './../../Components/ShowCard';
 import Search from './../../Components/Search';
 
 class Homepage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      shows: [],
       search: '',
     };
-  }
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    getShows()
-      .then((shows) => {
-        this.setState({
-          shows,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   searchShows = (word) => {
@@ -49,7 +31,7 @@ class Homepage extends Component {
         </header>
         <main className="container">
           <section className="display-flex">
-            {this.state.shows.map((show) => {
+            {this.props.shows.map((show) => {
               if (show.name.toLowerCase().includes(this.state.search)) {
                 return <ShowCard key={show.id} {...show} />;
               }

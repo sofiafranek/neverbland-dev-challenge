@@ -5,8 +5,33 @@
   margin: 0 50px;
 }
 
+.character-name {
+  color: darkgray;
+}
+
 .showcard {
   margin-right: 0;
+  ul {
+    padding-left: 0;
+    list-style: none;
+    font-size: 0.8em;
+  }
+}
+
+.navigation-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  i {
+    font-size: 1.6em;
+  }
+  small {
+    display: block;
+  }
+}
+
+#navigation-arrows__right {
+  text-align: right;
 }
 
 .container {
@@ -15,6 +40,9 @@
     position: absolute;
     top: -70px;
     justify-content: space-between;
+  }
+  h4 {
+    margin-bottom: 5px;
   }
 }
 
