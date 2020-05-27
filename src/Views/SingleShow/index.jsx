@@ -27,12 +27,17 @@ class SingleShow extends Component {
 
   render() {
     const single = this.state.singleShow;
-    console.log(single._embedded, 'show');
 
     return (
-      <div>
-        <h1>Single Show Page</h1>
-      </div>
+      <>
+        <header>
+          {/* <img src={single.image} alt="" /> */}
+          <small>{}</small>
+          <h1>{single.name}</h1>
+          <p>{single.summary}</p>
+        </header>
+        <main></main>
+      </>
     );
   }
 }
