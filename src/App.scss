@@ -2,6 +2,22 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  a {
+    max-width: 210px;
+  }
+}
+
+.single-episodes {
+  justify-content: space-between;
+  box-shadow: 0 5px 8px -4px lightgrey;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  p {
+    width: 100%;
+  }
+  .allign {
+    text-align: left;
+  }
 }
 
 .single-show-container {
@@ -20,7 +36,7 @@
   right: 0;
   text-align: center;
   i {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
 }
 
@@ -75,11 +91,28 @@
   }
 }
 
+@media (min-width: 750px) {
+  .display-flex.single-episodes {
+    flex-direction: row;
+    p {
+      width: 25% !important;
+    }
+    .allign {
+      text-align: right;
+    }
+  }
+}
+
 @media (min-width: 500px) {
   .display-flex {
     flex-direction: row;
   }
   .showcard {
     margin-bottom: 50px;
+  }
+  .display-flex.single-episodes {
+    p {
+      width: 50%;
+    }
   }
 }

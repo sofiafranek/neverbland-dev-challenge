@@ -41,6 +41,20 @@ header {
   }
 }
 
+.seasons-episodes-container {
+  margin-top: 100px;
+  min-height: 300px;
+  select {
+    height: 40px;
+    min-width: 150px;
+    border: 1px solid lightgray;
+    background-color: white;
+    margin-left: auto;
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+
 form {
   padding-top: 30px;
   input {
@@ -57,4 +71,22 @@ main {
     padding-left: 0;
     list-style: none;
   }
+}
+
+// Animations
+
+/* Grow */
+.hvr-grow {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  transform: scale(1.01);
+  cursor: pointer;
 }

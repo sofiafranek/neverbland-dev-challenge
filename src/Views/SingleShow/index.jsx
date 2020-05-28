@@ -12,6 +12,7 @@ class SingleShow extends Component {
       cast: [],
       season: [],
       episodes: [],
+      filter: '',
     };
   }
 
@@ -21,6 +22,10 @@ class SingleShow extends Component {
 
   // turn into an async await function later
   fetchData() {
+    this.setState({
+      filter: 'Season 1',
+    });
+
     singleShow(this.props.match.params.id)
       .then((show) => {
         this.setState({
@@ -72,11 +77,22 @@ class SingleShow extends Component {
     return result;
   };
 
+  filter = (event) => {
+    event.preventDefault();
+    const filter = event.target.value;
+
+    this.setState({
+      filter,
+    });
+  };
+
   render() {
     const single = this.state.singleShow;
     const cast = this.state.cast;
     const season = this.state.season;
     const episodes = this.state.episodes;
+
+    // console.log(this.state.filter, 'filter');
 
     // const rating = Math.floor(single.rating.average / 2);
     // const stars = [];
@@ -101,10 +117,6 @@ class SingleShow extends Component {
               <small>Next Show</small>
             </a>
           </div>
-          {/* <img src={Object.values(single.image)[0]} alt="" /> */}
-          {/* {stars.map((star, index) => {
-            return <span key={index}>{star}</span>;
-          })} */}
           <h1>{single.name}</h1>
           <small>{single.premiered}</small>
           <p>{single.summary}</p>
@@ -115,10 +127,6 @@ class SingleShow extends Component {
               <h5>Show Info</h5>
               <p>Status {single.status}</p>
               <hr />
-              {/* {single.genres.map((genre) => {
-            return <span>{genre}</span>;
-          })} */}
-              {/* <p>Streamed On {single.network}</p> */}
             </div>
             <div>
               <h5>Starring</h5>
@@ -134,26 +142,34 @@ class SingleShow extends Component {
               </ul>
             </div>
           </section>
-          <section>
-            {season.map((single, index) => {
-              console.log(index + 1, single.number);
-              return (
-                <div key={this.randomKey(20)}>
-                  <h6>
-                    Season {index + 1}, {single.name}
-                  </h6>
-                  <p>{single.summary}</p>
-                  {index + 1 === single.number
-                    ? episodes.map((single) => {
-                        return (
-                          <div key={this.randomKey(20)}>
-                            <p>{single.name}</p>
-                          </div>
-                        );
-                      })
-                    : ''}
-                </div>
-              );
+          <section className="seasons-episodes-container">
+            <select name="filter" className="filter" onChange={this.filter}>
+              <option value="Season 1">Season 1</option>
+              {season.map((single, index) => {
+                // To make the default option season 1 so there is no blank space, on inital view you see episodes displayed
+                index++;
+                return (
+                  <option value={`Season ${index + 1}`} key={`Season ${index + 1}`}>
+                    Season {index + 1}
+                  </option>
+                );
+              })}
+            </select>
+            {episodes.map((single) => {
+              console.log(single, 'single');
+              // Need to have an error message
+              if (this.state.filter === `Season ${single.season}`) {
+                return (
+                  <a href={single.url} key={this.randomKey(20)}>
+                    <div className="display-flex single-episodes hvr-grow">
+                      <p>{single.name}</p>
+                      <p className="allign">Episode {single.number}</p>
+                      <p className="allign">Airdate: {single.airdate}</p>
+                      <p className="allign">Duration: {single.runtime}</p>
+                    </div>
+                  </a>
+                );
+              }
             })}
           </section>
         </main>
