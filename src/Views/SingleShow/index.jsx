@@ -4,6 +4,9 @@ import { getCasts } from './../../Services/casts';
 import { getSeasons } from './../../Services/seasons';
 import { getEpisodes } from './../../Services/episodes';
 
+// global variables getting info from props, could not access through state of singleShow
+let showImg = '';
+
 class SingleShow extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +95,15 @@ class SingleShow extends Component {
     const season = this.state.season;
     const episodes = this.state.episodes;
 
-    // console.log(this.state.filter, 'filter');
+    // console.log(this.props.shows, 'props');
+
+    this.props.shows.map((show) => {
+      // console.log(show, 'show', this.props.match.params.id);
+      if (show.id === Number(this.props.match.params.id)) {
+        showImg = show.image.original;
+        console.log(show.image, 'show');
+      }
+    });
 
     // const rating = Math.floor(single.rating.average / 2);
     // const stars = [];
@@ -103,7 +114,7 @@ class SingleShow extends Component {
     // console.log(single.image, 'image');
     return (
       <>
-        <header>
+        <header className="single-show-header">
           <div className="navigation-arrows">
             <a href={`/show/${Number(this.props.match.params.id) - 1}`}>
               <i className="fas fa-long-arrow-alt-left"></i>
@@ -117,16 +128,28 @@ class SingleShow extends Component {
               <small>Next Show</small>
             </a>
           </div>
-          <h1>{single.name}</h1>
-          <small>{single.premiered}</small>
-          <p>{single.summary}</p>
+          <section className="show-introduction">
+            <div className="minimum-height">
+              <img src={showImg} alt="" />
+            </div>
+            <div>
+              {' '}
+              <h1>{single.name}</h1>
+              <small>{single.premiered}</small>
+              <p>{single.summary}</p>
+            </div>
+          </section>
         </header>
         <main>
           <section className="single-show-container">
             <div className="show-info-container">
               <h5>Show Info</h5>
-              <p>Status {single.status}</p>
-              <hr />
+              <div className="underline">
+                <p>Status {single.status}</p>
+              </div>
+              <div className="underline">
+                <p>Genres {single.genres}</p>
+              </div>
             </div>
             <div>
               <h5>Starring</h5>
@@ -144,19 +167,17 @@ class SingleShow extends Component {
           </section>
           <section className="seasons-episodes-container">
             <select name="filter" className="filter" onChange={this.filter}>
-              <option value="Season 1">Season 1</option>
               {season.map((single, index) => {
                 // To make the default option season 1 so there is no blank space, on inital view you see episodes displayed
                 index++;
                 return (
-                  <option value={`Season ${index + 1}`} key={`Season ${index + 1}`}>
-                    Season {index + 1}
+                  <option value={`Season ${index}`} key={`Season ${index}`}>
+                    Season {index}
                   </option>
                 );
               })}
             </select>
             {episodes.map((single) => {
-              console.log(single, 'single');
               // Need to have an error message
               if (this.state.filter === `Season ${single.season}`) {
                 return (

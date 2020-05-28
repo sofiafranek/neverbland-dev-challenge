@@ -8,8 +8,6 @@ const ShowCard = (props) => {
     stars.push(<i className="fas fa-star"></i>);
   }
 
-  console.log(props, 'props');
-
   return (
     <Link to={`/show/${props.id}`}>
       <div className="showcard">
@@ -20,7 +18,7 @@ const ShowCard = (props) => {
         })}
         <ul>
           {props.genres.map((genre) => {
-            return <li>{genre}</li>;
+            return <li key={genre}>{genre}</li>;
           })}
         </ul>
       </div>

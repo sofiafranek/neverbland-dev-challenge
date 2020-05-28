@@ -20,6 +20,19 @@
   }
 }
 
+// .underline {
+//   border-bottom: 1px solid black;
+// }
+
+.show-introduction {
+  display: flex;
+  img {
+    max-width: 280px;
+    margin-right: 50px;
+    position: relative;
+  }
+}
+
 .single-show-container {
   display: flex;
   flex-direction: column;
@@ -47,6 +60,10 @@
     list-style: none;
     font-size: 0.8em;
   }
+}
+
+.single-show-header {
+  padding-bottom: 0;
 }
 
 .navigation-arrows {
@@ -81,6 +98,13 @@
   p {
     width: 100%;
     min-width: 350px;
+  }
+}
+
+.show-introduction {
+  margin-bottom: 90px;
+  .minimum-height {
+    max-height: 330px;
   }
 }
 
