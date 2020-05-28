@@ -36,6 +36,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav>
+          <a href="/" className="home-icon">
+            <i className="fas fa-home"></i>
+          </a>
+        </nav>
         <Router>
           <Switch>
             <Route

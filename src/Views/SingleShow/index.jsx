@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { singleShow } from './../../Services/singleShow';
 import { getCasts } from './../../Services/casts';
+import { getSeasons } from './../../Services/seasons';
+import { getEpisodes } from './../../Services/episodes';
 
 class SingleShow extends Component {
   constructor(props) {
@@ -8,6 +10,8 @@ class SingleShow extends Component {
     this.state = {
       singleShow: [],
       cast: [],
+      season: [],
+      episodes: [],
     };
   }
 
@@ -15,6 +19,7 @@ class SingleShow extends Component {
     this.fetchData();
   }
 
+  // turn into an async await function later
   fetchData() {
     singleShow(this.props.match.params.id)
       .then((show) => {
@@ -35,6 +40,26 @@ class SingleShow extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+    getSeasons(this.props.match.params.id)
+      .then((season) => {
+        this.setState({
+          season: season,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    getEpisodes(this.props.match.params.id)
+      .then((episodes) => {
+        this.setState({
+          episodes: episodes,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   randomKey = (length) => {
@@ -50,8 +75,8 @@ class SingleShow extends Component {
   render() {
     const single = this.state.singleShow;
     const cast = this.state.cast;
-
-    console.log(single, 'single');
+    const season = this.state.season;
+    const episodes = this.state.episodes;
 
     // const rating = Math.floor(single.rating.average / 2);
     // const stars = [];
@@ -85,17 +110,52 @@ class SingleShow extends Component {
           <p>{single.summary}</p>
         </header>
         <main>
-          <h5>Starring</h5>
-          <ul>
-            {cast.map((single) => {
+          <section className="single-show-container">
+            <div className="show-info-container">
+              <h5>Show Info</h5>
+              <p>Status {single.status}</p>
+              <hr />
+              {/* {single.genres.map((genre) => {
+            return <span>{genre}</span>;
+          })} */}
+              {/* <p>Streamed On {single.network}</p> */}
+            </div>
+            <div>
+              <h5>Starring</h5>
+              <ul>
+                {cast.map((single) => {
+                  return (
+                    <li key={this.randomKey(20)}>
+                      {single.person.name}
+                      <small className="character-name"> - {single.character.name}</small>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+          <section>
+            {season.map((single, index) => {
+              console.log(index + 1, single.number);
               return (
-                <li key={this.randomKey(20)}>
-                  {single.person.name}
-                  <small className="character-name"> - {single.character.name}</small>
-                </li>
+                <div key={this.randomKey(20)}>
+                  <h6>
+                    Season {index + 1}, {single.name}
+                  </h6>
+                  <p>{single.summary}</p>
+                  {index + 1 === single.number
+                    ? episodes.map((single) => {
+                        return (
+                          <div key={this.randomKey(20)}>
+                            <p>{single.name}</p>
+                          </div>
+                        );
+                      })
+                    : ''}
+                </div>
               );
             })}
-          </ul>
+          </section>
         </main>
       </>
     );
