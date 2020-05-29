@@ -8,6 +8,7 @@ import { getShows } from './Services/shows';
 
 import HomePage from './Views/Homepage';
 import SingleShow from './Views/SingleShow';
+import Browse from './Views/Browse';
 
 class App extends Component {
   constructor() {
@@ -46,6 +47,11 @@ class App extends Component {
             <Route
               path="/"
               render={(props) => <HomePage {...props} shows={this.state.shows} />}
+              exact
+            />
+            <Route
+              path="/browse"
+              render={(props) => <Browse {...props} shows={this.state.shows} />}
               exact
             />
             <Route
