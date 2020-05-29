@@ -6,6 +6,10 @@ import { getEpisodes } from './../../Services/episodes';
 
 // global variables getting info from props, could not access through state of singleShow
 let showImg = '';
+let networkName = '';
+let scheduleDay = '';
+let scheduleTime = '';
+let showGenres = '';
 
 class SingleShow extends Component {
   constructor(props) {
@@ -95,13 +99,16 @@ class SingleShow extends Component {
     const season = this.state.season;
     const episodes = this.state.episodes;
 
-    // console.log(this.props.shows, 'props');
+    // console.log(Object.entries(single.genres));
+    // console.log(single.genres.join(', '), 'arr');
 
     this.props.shows.map((show) => {
-      // console.log(show, 'show', this.props.match.params.id);
       if (show.id === Number(this.props.match.params.id)) {
         showImg = show.image.original;
-        console.log(show.image, 'show');
+        networkName = show.network.name;
+        scheduleDay = show.schedule.days;
+        scheduleTime = show.schedule.time;
+        showGenres = Object.values(show.genres).join(' | ');
       }
     });
 
@@ -111,7 +118,6 @@ class SingleShow extends Component {
     //   stars.push(<i className="fas fa-star"></i>);
     // }
 
-    // console.log(single.image, 'image');
     return (
       <>
         <header className="single-show-header">
@@ -133,7 +139,6 @@ class SingleShow extends Component {
               <img src={showImg} alt="" />
             </div>
             <div>
-              {' '}
               <h1>{single.name}</h1>
               <small>{single.premiered}</small>
               <p>{single.summary}</p>
@@ -145,10 +150,21 @@ class SingleShow extends Component {
             <div className="show-info-container">
               <h5>Show Info</h5>
               <div className="underline">
-                <p>Status {single.status}</p>
+                <p>Status: {single.status}</p>
               </div>
               <div className="underline">
-                <p>Genres {single.genres}</p>
+                <p>Genres: {showGenres}</p>
+              </div>
+              <div className="underline">
+                <p>Streamed on: {networkName}</p>
+              </div>
+              <div className="underline">
+                <p>Language: {single.language}</p>
+              </div>
+              <div className="underline">
+                <p>
+                  Schedule: {scheduleDay} - {scheduleTime}
+                </p>
               </div>
             </div>
             <div>

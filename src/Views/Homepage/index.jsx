@@ -32,10 +32,16 @@ class Homepage extends Component {
         <main className="container">
           <section className="display-flex">
             {this.props.shows.map((show) => {
-              if (show.name.toLowerCase().includes(this.state.search)) {
+              if (show.genres.includes('Action')) {
                 return <ShowCard key={show.id} {...show} />;
               }
             })}
+
+            {/* {this.props.shows.map((show) => {
+              if (show.name.toLowerCase().includes(this.state.search)) {
+                return <ShowCard key={show.id} {...show} />;
+              }
+            })} */}
           </section>
         </main>
       </>
