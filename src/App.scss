@@ -24,11 +24,23 @@
 //   border-bottom: 1px solid black;
 // }
 
+.cast-image {
+  border-radius: 50%;
+  overflow: hidden;
+  max-width: 60px;
+  max-height: 60px;
+  img {
+    max-width: 60px;
+  }
+}
+
 .show-introduction {
   display: flex;
+  flex-direction: column;
   img {
+    margin: auto;
+    display: block;
     max-width: 280px;
-    margin-right: 50px;
     position: relative;
   }
 }
@@ -36,6 +48,9 @@
 .single-show-container {
   display: flex;
   flex-direction: column;
+  section {
+    width: 100%;
+  }
 }
 
 .character-name {
@@ -102,9 +117,13 @@
 }
 
 .show-introduction {
-  margin-bottom: 90px;
+  margin-bottom: 20px;
+  p {
+    margin-bottom: 50px;
+  }
   .minimum-height {
-    max-height: 330px;
+    max-height: initial;
+    margin-bottom: 50px;
   }
 }
 
@@ -116,6 +135,17 @@
 }
 
 @media (min-width: 750px) {
+  .show-introduction {
+    flex-direction: row;
+    margin-bottom: 90px;
+    img {
+      margin-right: 50px;
+      display: initial;
+    }
+    .minimum-height {
+      max-height: 330px;
+    }
+  }
   .display-flex.single-episodes {
     flex-direction: row;
     p {

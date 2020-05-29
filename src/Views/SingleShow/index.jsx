@@ -4,13 +4,6 @@ import { getCasts } from './../../Services/casts';
 import { getSeasons } from './../../Services/seasons';
 import { getEpisodes } from './../../Services/episodes';
 
-// global variables getting info from props, could not access through state of singleShow
-let showImg = '';
-let networkName = '';
-let scheduleDay = '';
-let scheduleTime = '';
-let showGenres = '';
-
 class SingleShow extends Component {
   constructor(props) {
     super(props);
@@ -99,8 +92,12 @@ class SingleShow extends Component {
     const season = this.state.season;
     const episodes = this.state.episodes;
 
-    // console.log(Object.entries(single.genres));
-    // console.log(single.genres.join(', '), 'arr');
+    let showImg = '';
+    let networkName = '';
+    let scheduleDay = '';
+    let scheduleTime = '';
+    let showGenres = '';
+    let showRating = '';
 
     this.props.shows.map((show) => {
       if (show.id === Number(this.props.match.params.id)) {
@@ -109,14 +106,16 @@ class SingleShow extends Component {
         scheduleDay = show.schedule.days;
         scheduleTime = show.schedule.time;
         showGenres = Object.values(show.genres).join(' | ');
+        showRating = show.rating.average;
       }
     });
 
-    // const rating = Math.floor(single.rating.average / 2);
-    // const stars = [];
-    // for (let i = 0; i < rating; i++) {
-    //   stars.push(<i className="fas fa-star"></i>);
-    // }
+    const rating = Math.floor(showRating / 2);
+    const alternativeRating = showRating / 2;
+    const stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(<i className="fas fa-star" key={i}></i>);
+    }
 
     return (
       <>
@@ -139,6 +138,9 @@ class SingleShow extends Component {
               <img src={showImg} alt="" />
             </div>
             <div>
+              <small>
+                {stars} {alternativeRating} / 5
+              </small>
               <h1>{single.name}</h1>
               <small>{single.premiered}</small>
               <p>{single.summary}</p>
@@ -147,7 +149,7 @@ class SingleShow extends Component {
         </header>
         <main>
           <section className="single-show-container">
-            <div className="show-info-container">
+            <section className="show-info-container">
               <h5>Show Info</h5>
               <div className="underline">
                 <p>Status: {single.status}</p>
@@ -163,23 +165,32 @@ class SingleShow extends Component {
               </div>
               <div className="underline">
                 <p>
-                  Schedule: {scheduleDay} - {scheduleTime}
+                  Schedule: {scheduleTime} - {scheduleDay}
                 </p>
               </div>
-            </div>
-            <div>
+            </section>
+            <section>
               <h5>Starring</h5>
               <ul>
-                {cast.map((single) => {
+                {cast.map((single, i) => {
+                  console.log(single.person.image.medium, 'single');
                   return (
                     <li key={this.randomKey(20)}>
-                      {single.person.name}
-                      <small className="character-name"> - {single.character.name}</small>
+                      <div
+                        className="cast-image"
+                        // style={`background-image: url(${single.person.image.medium})`}
+                      >
+                        <img src={single.person.image.medium} alt={i} />
+                      </div>
+                      <div>{single.person.name}</div>
+                      <div>
+                        <small className="character-name"> - {single.character.name}</small>
+                      </div>
                     </li>
                   );
                 })}
               </ul>
-            </div>
+            </section>
           </section>
           <section className="seasons-episodes-container">
             <select name="filter" className="filter" onChange={this.filter}>

@@ -3,12 +3,32 @@ import React, { Component } from 'react';
 import ShowCard from './../../Components/ShowCard';
 import Search from './../../Components/Search';
 
+import { getScheduledShow } from './../../Services/schedule';
+import { getImages } from './../../Services/images';
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: '',
+      shows: [],
     };
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    getScheduledShow()
+      .then((shows) => {
+        this.setState({
+          shows,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   searchShows = (word) => {
@@ -32,14 +52,17 @@ class Homepage extends Component {
         <main className="container">
           <section className="display-flex">
             {this.props.shows.map((show) => {
-              if (show.genres.includes('Action')) {
-                return <ShowCard key={show.id} {...show} />;
-              }
+              // if (show.genres.includes('Action')) {
+              return <ShowCard key={show.id} {...show} />;
+              // }
             })}
 
-            {/* {this.props.shows.map((show) => {
+            {/* {this.state.shows.map((show) => {
               if (show.name.toLowerCase().includes(this.state.search)) {
-                return <ShowCard key={show.id} {...show} />;
+                console.log(show, 'images');
+                if (show.show.rating.average !== null) {
+                  return <ShowCard key={show.id} {...show} />;
+                }
               }
             })} */}
           </section>

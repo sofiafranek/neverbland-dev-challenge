@@ -72,6 +72,13 @@ main {
     list-style: none;
     li {
       margin-bottom: 7.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        text-align: left;
+        width: 33.3%;
+      }
     }
   }
 }

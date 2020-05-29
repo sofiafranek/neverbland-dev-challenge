@@ -5,8 +5,8 @@ const getCasts = (showId) =>
     axios
       .get(`http://api.tvmaze.com/shows/${showId}/cast`)
       .then((result) => {
-        const beers = result.data;
-        resolve(beers);
+        const casts = result.data;
+        resolve(casts);
       })
       .catch(reject);
   });
