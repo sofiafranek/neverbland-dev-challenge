@@ -43,7 +43,7 @@ class Homepage extends Component {
           <h3>Last Added Shows</h3>
         </header>
         <main className="container">
-          <section className="display-flex">
+          <section className="display-flex homepage">
             {this.props.shows.map((show) => {
               // showing the lastest seasons that have premiered by date
               if (show.premiered > '2014-01-12') {

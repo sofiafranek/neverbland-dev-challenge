@@ -129,38 +129,49 @@ class SingleShow extends Component {
 
     return (
       <>
-        <header className="single-show-header">
-          <div className="navigation-arrows">
-            <a href={`/show/${Number(this.props.match.params.id) - 1}`}>
-              <i className="fas fa-long-arrow-alt-left"></i>
-              <small>Previous Show</small>
-            </a>
-            <a
-              href={`/show/${Number(this.props.match.params.id) + 1}`}
-              id="navigation-arrows__right"
-            >
-              <i className="fas fa-long-arrow-alt-right"></i>
-              <small>Next Show</small>
-            </a>
+        <div className="overlay">
+          <header
+            className="single-show-header"
+            style={{
+              backgroundImage: `url(${showImg})`,
+              backgroundSize: 'cover',
+              backgroundColor: 'black',
+              opacity: '0.5',
+              minHeight: '450px',
+            }}
+          >
+            <div className="navigation-arrows">
+              <a href={`/show/${Number(this.props.match.params.id) - 1}`}>
+                <i className="fas fa-long-arrow-alt-left"></i>
+                <small>Previous Show</small>
+              </a>
+              <a
+                href={`/show/${Number(this.props.match.params.id) + 1}`}
+                id="navigation-arrows__right"
+              >
+                <i className="fas fa-long-arrow-alt-right"></i>
+                <small>Next Show</small>
+              </a>
+            </div>
+          </header>
+        </div>
+        <section className="show-introduction">
+          <div className="minimum-height">
+            <img src={showImg} alt="" />
           </div>
-          <section className="show-introduction">
-            <div className="minimum-height">
-              <img src={showImg} alt="" />
-            </div>
-            <div>
-              <small className="star-ratings">
-                {stars}
-                {emptyStars.map((star, index) => {
-                  return <span key={index}>{star}</span>;
-                })}
-                <span className="rating-no">{alternativeRating} / 5</span>
-              </small>
-              <h1>{single.name}</h1>
-              <small>{single.premiered}</small>
-              <p>{single.summary}</p>
-            </div>
-          </section>
-        </header>
+          <div>
+            <small className="star-ratings">
+              {stars}
+              {emptyStars.map((star, index) => {
+                return <span key={index}>{star}</span>;
+              })}
+              <span className="rating-no">{alternativeRating} / 5</span>
+            </small>
+            <h1>{single.name}</h1>
+            <small>{single.premiered}</small>
+            <p>{single.summary}</p>
+          </div>
+        </section>
         <main>
           <section className="single-show-container">
             <section className="show-info-container">

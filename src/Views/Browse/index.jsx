@@ -47,12 +47,17 @@ class Browse extends Component {
           <h1>Browse</h1>
           <Search search={this.searchShows} />
           <ul>
-            <li onClick={this.filter} data-id="All" key="All">
+            <li onClick={this.filter} data-id="All" key="All" className="hvr-underline-from-left">
               All
             </li>
             {this.state.genres.map((genre) => {
               return (
-                <li onClick={this.filter} data-id={genre} key={genre}>
+                <li
+                  onClick={this.filter}
+                  data-id={genre}
+                  key={genre}
+                  className="hvr-underline-from-left"
+                >
                   {genre}
                 </li>
               );

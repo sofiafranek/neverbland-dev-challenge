@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 100%;
+  .homepage {
+    width: 100%;
+  }
   a {
     max-width: 210px;
   }
+}
+
+.overlay {
+  background-color: black;
 }
 
 .star-ratings {
@@ -27,6 +33,14 @@
   h3 {
     text-align: left;
   }
+  button {
+    padding: 10px 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
   ul {
     padding-bottom: 20px;
     margin-top: 35px;
@@ -35,6 +49,7 @@
     flex-wrap: wrap;
     list-style: none;
     justify-content: space-evenly;
+    cursor: pointer;
   }
 }
 
@@ -44,6 +59,7 @@
   left: 0;
   right: 0;
   text-align: center;
+  z-index: 1;
   i {
     font-size: 1.6em;
   }
@@ -70,7 +86,7 @@
   section {
     position: absolute;
     top: -70px;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   h4 {
     margin-bottom: 5px;
@@ -103,6 +119,9 @@
 .show-introduction {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 150px;
+  margin: 0 50px;
   img {
     margin: auto;
     display: block;
@@ -114,6 +133,7 @@
 .single-show-container {
   display: flex;
   flex-direction: column;
+  margin-top: 70px;
   section {
     width: 100%;
   }
