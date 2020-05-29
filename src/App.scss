@@ -8,6 +8,17 @@
   }
 }
 
+.star-ratings {
+  margin-bottom: 15px;
+  .rating-no {
+    margin-left: 10px;
+  }
+  display: block;
+  span {
+    margin-right: 3.5px;
+  }
+}
+
 .centered-header {
   text-align: center;
   h1 {

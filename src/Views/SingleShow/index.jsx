@@ -113,9 +113,18 @@ class SingleShow extends Component {
 
     const rating = Math.floor(showRating / 2);
     const alternativeRating = showRating / 2;
+    const empty = 5 - rating;
     const stars = [];
+    const emptyStars = [];
     for (let i = 0; i < rating; i++) {
-      stars.push(<i className="fas fa-star" key={i}></i>);
+      stars.push(
+        <span>
+          <i className="fas fa-star" key={i}></i>
+        </span>
+      );
+    }
+    for (let i = 0; i < empty; i++) {
+      emptyStars.push(<i className="far fa-star"></i>);
     }
 
     return (
@@ -139,8 +148,12 @@ class SingleShow extends Component {
               <img src={showImg} alt="" />
             </div>
             <div>
-              <small>
-                {stars} {alternativeRating} / 5
+              <small className="star-ratings">
+                {stars}
+                {emptyStars.map((star, index) => {
+                  return <span key={index}>{star}</span>;
+                })}
+                <span className="rating-no">{alternativeRating} / 5</span>
               </small>
               <h1>{single.name}</h1>
               <small>{single.premiered}</small>
@@ -174,13 +187,9 @@ class SingleShow extends Component {
               <h5>Starring</h5>
               <ul>
                 {cast.map((single, i) => {
-                  console.log(single.person.image.medium, 'single');
                   return (
                     <li key={this.randomKey(20)}>
-                      <div
-                        className="cast-image"
-                        // style={`background-image: url(${single.person.image.medium})`}
-                      >
+                      <div className="cast-image">
                         <img src={single.person.image.medium} alt={i} />
                       </div>
                       <div>{single.person.name}</div>
