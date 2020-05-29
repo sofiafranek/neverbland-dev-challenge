@@ -129,6 +129,20 @@ class SingleShow extends Component {
 
     return (
       <>
+        <div className="navigation-arrows">
+          <a href={`/show/${Number(this.props.match.params.id) - 1}`} className="hvr-grow large">
+            <i className="fas fa-long-arrow-alt-left"></i>
+            <small>Previous Show</small>
+          </a>
+          <a
+            href={`/show/${Number(this.props.match.params.id) + 1}`}
+            id="navigation-arrows__right"
+            className="hvr-grow large"
+          >
+            <i className="fas fa-long-arrow-alt-right"></i>
+            <small>Next Show</small>
+          </a>
+        </div>
         <div className="overlay">
           <header
             className="single-show-header"
@@ -136,24 +150,11 @@ class SingleShow extends Component {
               backgroundImage: `url(${showImg})`,
               backgroundSize: 'cover',
               backgroundColor: 'black',
-              opacity: '0.5',
-              minHeight: '450px',
+              opacity: '0.3',
+              minHeight: '475px',
+              backgroundPosition: 'center',
             }}
-          >
-            <div className="navigation-arrows">
-              <a href={`/show/${Number(this.props.match.params.id) - 1}`}>
-                <i className="fas fa-long-arrow-alt-left"></i>
-                <small>Previous Show</small>
-              </a>
-              <a
-                href={`/show/${Number(this.props.match.params.id) + 1}`}
-                id="navigation-arrows__right"
-              >
-                <i className="fas fa-long-arrow-alt-right"></i>
-                <small>Next Show</small>
-              </a>
-            </div>
-          </header>
+          ></header>
         </div>
         <section className="show-introduction">
           <div className="minimum-height">

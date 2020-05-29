@@ -10,6 +10,50 @@
   }
 }
 
+.browse-header {
+  position: absolute;
+  top: 110px;
+  left: 50px;
+  right: 50px;
+  text-align: center;
+  ul {
+    padding-bottom: 20px;
+    margin-top: 35px;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  input {
+    background-color: transparent;
+    border-bottom: 0.5px solid #b0b0b0;
+  }
+}
+
+.overlay-section {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  right: 0;
+  color: #b0b0b0;
+  text-align: center;
+  h1 {
+    font-size: 2em;
+  }
+  button {
+    background-color: #650d1c;
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    color: #b3b3b3;
+    margin-top: 15px;
+    border-radius: 15px;
+    font-weight: 700;
+  }
+}
+
 .overlay {
   background-color: black;
 }
@@ -27,6 +71,7 @@
 
 .centered-header {
   text-align: center;
+  color: #b0b0b0;
   h1 {
     padding-top: 30px;
   }
@@ -41,16 +86,6 @@
     text-transform: uppercase;
     margin-top: 20px;
   }
-  ul {
-    padding-bottom: 20px;
-    margin-top: 35px;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-evenly;
-    cursor: pointer;
-  }
 }
 
 .home-icon {
@@ -62,13 +97,22 @@
   z-index: 1;
   i {
     font-size: 1.6em;
+    color: #b0b0b0;
   }
 }
 
 .navigation-arrows {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 100px);
+  margin: auto;
+  margin-left: 50px;
+  a {
+    color: #b0b0b0;
+  }
   i {
     font-size: 1.6em;
   }
@@ -86,10 +130,15 @@
   section {
     position: absolute;
     top: -70px;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   h4 {
     margin-bottom: 5px;
+  }
+  h3 {
+    position: absolute;
+    top: -115px;
+    color: #b0b0b0;
   }
 }
 
@@ -120,13 +169,26 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 150px;
+  top: 140px;
   margin: 0 50px;
+  color: #b0b0b0;
+  margin-bottom: 20px;
   img {
     margin: auto;
     display: block;
     max-width: 280px;
     position: relative;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 50px;
+  }
+  .minimum-height {
+    max-height: initial;
+    margin-bottom: 50px;
   }
 }
 
@@ -145,10 +207,17 @@
 
 .showcard {
   margin-right: 0;
+  color: #b0b0b0;
   ul {
     padding-left: 0;
     list-style: none;
     font-size: 0.8em;
+  }
+  h6 {
+    margin-top: 15px;
+  }
+  span {
+    margin-right: 3.5px;
   }
 }
 
@@ -160,17 +229,6 @@
   p {
     width: 100%;
     min-width: 350px;
-  }
-}
-
-.show-introduction {
-  margin-bottom: 20px;
-  p {
-    margin-bottom: 50px;
-  }
-  .minimum-height {
-    max-height: initial;
-    margin-bottom: 50px;
   }
 }
 

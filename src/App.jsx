@@ -37,32 +37,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <nav>
-            <a href="/" className="home-icon">
-              <i className="fas fa-home"></i>
-            </a>
-          </nav>
-          <Router>
-            <Switch>
-              <Route
-                path="/"
-                render={(props) => <HomePage {...props} shows={this.state.shows} />}
-                exact
-              />
-              <Route
-                path="/browse"
-                render={(props) => <Browse {...props} shows={this.state.shows} />}
-                exact
-              />
-              <Route
-                path="/show/:id"
-                render={(props) => <SingleShow {...props} shows={this.state.shows} />}
-                exact
-              />
-            </Switch>
-          </Router>
-        </div>
+        <nav>
+          <a href="/" className="home-icon">
+            <i className="fas fa-home"></i>
+          </a>
+        </nav>
+        <Router>
+          <Switch>
+            <Route
+              path="/"
+              render={(props) => <HomePage {...props} shows={this.state.shows} />}
+              exact
+            />
+            <Route
+              path="/browse"
+              render={(props) => <Browse {...props} shows={this.state.shows} />}
+              exact
+            />
+            <Route
+              path="/show/:id"
+              render={(props) => <SingleShow {...props} shows={this.state.shows} />}
+              exact
+            />
+          </Switch>
+        </Router>
       </div>
     );
   }

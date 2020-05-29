@@ -24,11 +24,7 @@ const ShowCard = (props) => {
         {emptyStars.map((star, index) => {
           return <span key={index}>{star}</span>;
         })}
-        <ul>
-          {props.genres.map((genre) => {
-            return <li key={genre}>{genre}</li>;
-          })}
-        </ul>
+        <h6>{Object.values(props.genres).join(' | ')}</h6>
       </div>
     </Link>
   );

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import bannerImg from './../../felix-mooneeram-evlkOfkQ5rE-unsplash.jpg';
+
 import Search from './../../Components/Search';
 import ShowCard from './../../Components/ShowCard';
 
@@ -43,7 +45,18 @@ class Browse extends Component {
   render() {
     return (
       <>
-        <header className="centered-header">
+        <header
+          className="centered-header"
+          style={{
+            backgroundImage: `url(${bannerImg})`,
+            backgroundSize: 'cover',
+            backgroundColor: 'black',
+            opacity: '0.3',
+            minHeight: '300px',
+            backgroundPosition: 'center',
+          }}
+        ></header>
+        <section className="browse-header">
           <h1>Browse</h1>
           <Search search={this.searchShows} />
           <ul>
@@ -63,7 +76,7 @@ class Browse extends Component {
               );
             })}
           </ul>
-        </header>
+        </section>
         <main className="container">
           <section className="display-flex">
             {this.props.shows.map((show) => {

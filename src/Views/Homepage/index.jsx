@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import bannerImg from './../../felix-mooneeram-evlkOfkQ5rE-unsplash.jpg';
+
 import ShowCard from './../../Components/ShowCard';
 
 import { getScheduledShow } from './../../Services/schedule';
@@ -31,7 +33,20 @@ class Homepage extends Component {
   render() {
     return (
       <>
-        <header className="centered-header">
+        <div className="overlay">
+          <header
+            className="centered-header"
+            style={{
+              backgroundImage: `url(${bannerImg})`,
+              backgroundSize: 'cover',
+              backgroundColor: 'black',
+              opacity: '0.3',
+              backgroundPosition: 'center',
+              minHeight: '385px',
+            }}
+          ></header>
+        </div>
+        <section className="overlay-section">
           <h1>TV Bland</h1>
           <h2>TV show and web series database.</h2>
           <h2>
@@ -40,9 +55,9 @@ class Homepage extends Component {
           <a href="/browse">
             <button>Browse All</button>
           </a>
-          <h3>Last Added Shows</h3>
-        </header>
+        </section>
         <main className="container">
+          <h3>Last Added Shows</h3>
           <section className="display-flex homepage">
             {this.props.shows.map((show) => {
               // showing the lastest seasons that have premiered by date

@@ -3,15 +3,14 @@
   src: url('Gordita\ Regular.woff');
 }
 
-// .App {
-// background-color: black;
-// color: #b0b0b0;
-// background-image: url('./escheresque-dark.png');
-// }
-
 body {
   font-family: 'Gordita';
   margin: 0;
+  background-color: black;
+}
+
+.App {
+  color: #b0b0b0;
 }
 
 h1,
@@ -40,7 +39,7 @@ p {
 
 header {
   background-color: #ededed;
-  padding: 75px 50px;
+  padding: 60px 50px;
   min-height: 230px;
   h3 {
     margin-top: 35px;
@@ -50,6 +49,7 @@ header {
 .seasons-episodes-container {
   margin-top: 100px;
   min-height: 300px;
+  margin-bottom: 70px;
   select {
     height: 40px;
     min-width: 150px;
@@ -107,6 +107,12 @@ main {
   cursor: pointer;
 }
 
+.large:hover,
+.large:focus,
+.large:active {
+  transform: scale(1.05);
+}
+
 /* Underline From Left */
 .hvr-underline-from-left {
   display: inline-block;
@@ -124,7 +130,7 @@ main {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #2098d1;
+  background: #650d1c;
   height: 3px;
   -webkit-transition-property: right;
   transition-property: right;
