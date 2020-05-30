@@ -34,7 +34,7 @@
 
 .overlay-section {
   position: absolute;
-  top: 110px;
+  top: 120px;
   left: 0;
   right: 0;
   color: #b0b0b0;
@@ -144,9 +144,11 @@
 
 .single-episodes {
   justify-content: space-between;
-  box-shadow: 0 5px 8px -4px lightgrey;
+  box-shadow: 0 5px 8px -4px #565656;
   padding: 0 20px;
   margin-bottom: 20px;
+  color: #b0b0b0;
+  background-color: #101010;
   p {
     width: 100%;
   }

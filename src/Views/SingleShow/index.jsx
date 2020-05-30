@@ -118,13 +118,13 @@ class SingleShow extends Component {
     const emptyStars = [];
     for (let i = 0; i < rating; i++) {
       stars.push(
-        <span>
-          <i className="fas fa-star" key={i}></i>
+        <span key={i}>
+          <i className="fas fa-star"></i>
         </span>
       );
     }
     for (let i = 0; i < empty; i++) {
-      emptyStars.push(<i className="far fa-star"></i>);
+      emptyStars.push(<i className="far fa-star" key={i}></i>);
     }
 
     return (
