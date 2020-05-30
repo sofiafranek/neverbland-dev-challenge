@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import bannerImg from './../../felix-mooneeram-evlkOfkQ5rE-unsplash.jpg';
+import bannerImg from './../../krists-luhaers-AtPWnYNDJnM-unsplash.jpg';
 
 import ShowCard from './../../Components/ShowCard';
 
@@ -48,9 +48,10 @@ class Homepage extends Component {
         </div>
         <section className="overlay-section">
           <h1>TV Bland</h1>
-          <h2>TV show and web series database.</h2>
+          <h2>See all your favourite TV series and shows here.</h2>
           <h2>
-            Create personliased schedules. Episode guide, cast, crew and character information.
+            Find the lastest added shows, browse by genre and see all the seasons & episodes for
+            your shows and more!
           </h2>
           <a href="/browse">
             <button>Browse All</button>

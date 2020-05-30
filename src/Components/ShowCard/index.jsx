@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const ShowCard = (props) => {
   const rating = Math.floor(props.rating.average / 2);
@@ -14,7 +13,7 @@ const ShowCard = (props) => {
   }
 
   return (
-    <Link to={`/show/${props.id}`}>
+    <a href={`/show/${props.id}`}>
       <div className="showcard hvr-float">
         <img src={props.image.medium} alt="" />
         <h4>{props.name}</h4>
@@ -26,7 +25,7 @@ const ShowCard = (props) => {
         })}
         <h6>{Object.values(props.genres).join(' | ')}</h6>
       </div>
-    </Link>
+    </a>
   );
 };
 

@@ -106,7 +106,7 @@ class SingleShow extends Component {
         networkName = show.network.name;
         scheduleDay = show.schedule.days;
         scheduleTime = show.schedule.time;
-        showGenres = Object.values(show.genres).join(' | ');
+        showGenres = Object.values(show.genres).join(' , ');
         showRating = show.rating.average;
       }
     });
@@ -146,6 +146,7 @@ class SingleShow extends Component {
         <div className="overlay">
           <header
             className="single-show-header"
+            id="box"
             style={{
               backgroundImage: `url(${showImg})`,
               backgroundSize: 'cover',
@@ -178,21 +179,26 @@ class SingleShow extends Component {
             <section className="show-info-container">
               <h5>Show Info</h5>
               <div className="underline">
-                <p>Status: {single.status}</p>
+                <span>Status:</span>
+                <span>{single.status}</span>
               </div>
               <div className="underline">
-                <p>Genres: {showGenres}</p>
+                <span>Genres:</span>
+                <span>{showGenres}</span>
               </div>
               <div className="underline">
-                <p>Streamed on: {networkName}</p>
+                <span>Streamed on:</span>
+                <span>{networkName}</span>
               </div>
               <div className="underline">
-                <p>Language: {single.language}</p>
+                <span>Language:</span>
+                <span>{single.language}</span>
               </div>
               <div className="underline">
-                <p>
-                  Schedule: {scheduleTime} - {scheduleDay}
-                </p>
+                <span>Schedule:</span>
+                <span>
+                  {scheduleTime} - {scheduleDay}
+                </span>
               </div>
             </section>
             <section>
@@ -226,21 +232,43 @@ class SingleShow extends Component {
                 );
               })}
             </select>
-            {episodes.map((single) => {
-              // Need to have an error message
-              if (this.state.filter === `Season ${single.season}`) {
-                return (
-                  <a href={single.url} key={this.randomKey(20)}>
-                    <div className="display-flex single-episodes hvr-grow">
-                      <p>{single.name}</p>
-                      <p className="allign">Episode {single.number}</p>
-                      <p className="allign">Airdate: {single.airdate}</p>
-                      <p className="allign">Duration: {single.runtime}</p>
-                    </div>
-                  </a>
-                );
-              }
-            })}
+            <div className="display-flex episodes-container">
+              {episodes.map((single) => {
+                // Need to have an error message
+                if (this.state.filter === `Season ${single.season}`) {
+                  return (
+                    <a href={single.url} key={this.randomKey(20)}>
+                      <div className="overlay">
+                        <div
+                          className="single-episodes hvr-grow"
+                          style={{
+                            backgroundImage: `url(${
+                              single.image !== null ? single.image.original : ''
+                            })`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'top',
+                            minHeight: '250px',
+                            opacity: '0.7',
+                          }}
+                        ></div>
+                      </div>
+                      <section>
+                        <div className="image-text">
+                          <span>
+                            {single.name} {single.number}
+                          </span>
+                          <span>Episode {single.number}</span>
+                        </div>
+                        <div className="image-text">
+                          <span>{single.airdate}</span>
+                          <span>{single.runtime} Minutes</span>
+                        </div>
+                      </section>
+                    </a>
+                  );
+                }
+              })}
+            </div>
           </section>
         </main>
       </>

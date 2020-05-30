@@ -6,11 +6,12 @@
 body {
   font-family: 'Gordita';
   margin: 0;
-  background-color: black;
+  // background-color: black;
+  background-color: #141414;
 }
 
 .App {
-  color: #b0b0b0;
+  color: #e5e5e5;
 }
 
 h1,
@@ -59,7 +60,7 @@ header {
     min-width: 170px;
     border: 1px solid #414141;
     background-color: black;
-    color: #b0b0b0;
+    color: #e5e5e5;
     margin-left: auto;
     display: block;
     margin-bottom: 30px;
@@ -74,7 +75,7 @@ form {
     padding: 10px;
     width: 400px;
     font-size: 1em;
-    color: #b0b0b0;
+    color: #e5e5e5;
   }
 }
 
@@ -89,7 +90,7 @@ main {
       align-items: center;
       justify-content: space-between;
       div {
-        text-align: left;
+        text-align: right;
         width: 33.3%;
       }
     }
@@ -171,4 +172,12 @@ main {
 .hvr-float:active {
   -webkit-transform: translateY(-8px);
   transform: translateY(-8px);
+}
+
+@media (min-width: 980px) {
+  main {
+    ul li div {
+      text-align: left;
+    }
+  }
 }
