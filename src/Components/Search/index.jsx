@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import './style.scss';
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search: '',
-      // filter: '',
     };
   }
 
@@ -16,14 +16,6 @@ class Search extends Component {
     });
     this.props.search(search);
   };
-
-  // startFilter(event) {
-  //   const filter = event.target.value;
-  //   this.setState({
-  //     filter
-  //   });
-  //   this.props.filter(filter);
-  // }
 
   render() {
     return (
@@ -38,13 +30,6 @@ class Search extends Component {
             autoComplete="off"
           />
         </form>
-        {/* <select name="filter" className="col-4 filter" onChange={this.startFilter}>
-          <option value="">--Filter by--</option>
-          <option value="ascendingEquality"></option>
-          <option value="descendingEquality"></option>
-          <option value="ascendingEmployees"></option>
-          <option value="descendingEmployees"></option>
-        </select> */}
       </div>
     );
   }

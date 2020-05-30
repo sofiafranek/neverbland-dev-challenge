@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.scss';
 
 import { singleShow } from './../../Services/singleShow';
 import { getCasts } from './../../Services/casts';
@@ -21,51 +22,35 @@ class SingleShow extends Component {
     this.fetchData();
   }
 
-  // turn into an async await function later
-  fetchData() {
+  async fetchData() {
     this.setState({
       filter: 'Season 1',
     });
 
-    singleShow(this.props.match.params.id)
-      .then((show) => {
+    try {
+      await singleShow(this.props.match.params.id).then((show) => {
         this.setState({
           singleShow: show,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-
-    getCasts(this.props.match.params.id)
-      .then((cast) => {
+      await getCasts(this.props.match.params.id).then((cast) => {
         this.setState({
           cast: cast,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-
-    getSeasons(this.props.match.params.id)
-      .then((season) => {
+      await getSeasons(this.props.match.params.id).then((season) => {
         this.setState({
           season: season,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-
-    getEpisodes(this.props.match.params.id)
-      .then((episodes) => {
+      await getEpisodes(this.props.match.params.id).then((episodes) => {
         this.setState({
           episodes: episodes,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   randomKey = (length) => {
@@ -93,6 +78,7 @@ class SingleShow extends Component {
     const season = this.state.season;
     const episodes = this.state.episodes;
 
+    // variables declared to then be assigned value by mapping props inherited from app
     let showImg = '';
     let networkName = '';
     let scheduleDay = '';
@@ -111,6 +97,7 @@ class SingleShow extends Component {
       }
     });
 
+    // calculating the rating and adding the fontawesome stars to create the visual rating
     const rating = Math.floor(showRating / 2);
     const alternativeRating = showRating / 2;
     const empty = 5 - rating;
@@ -143,17 +130,12 @@ class SingleShow extends Component {
             <small>Next Show</small>
           </a>
         </div>
-        <div className="overlay">
+        <div className="overlay" id="single-show-overlay">
           <header
             className="single-show-header"
             id="box"
             style={{
               backgroundImage: `url(${showImg})`,
-              backgroundSize: 'cover',
-              backgroundColor: 'black',
-              opacity: '0.3',
-              minHeight: '475px',
-              backgroundPosition: 'center',
             }}
           ></header>
         </div>
@@ -240,15 +222,11 @@ class SingleShow extends Component {
                     <a href={single.url} key={this.randomKey(20)}>
                       <div className="overlay">
                         <div
-                          className="single-episodes hvr-grow"
+                          className="single-episodes hvr-grow single-episode-image"
                           style={{
                             backgroundImage: `url(${
                               single.image !== null ? single.image.original : ''
                             })`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'top',
-                            minHeight: '250px',
-                            opacity: '0.7',
                           }}
                         ></div>
                       </div>

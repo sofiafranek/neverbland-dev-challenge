@@ -10,6 +10,8 @@ import HomePage from './Views/Homepage';
 import SingleShow from './Views/SingleShow';
 import Browse from './Views/Browse';
 
+import Navigation from './Components/Navigation';
+
 class App extends Component {
   constructor() {
     super();
@@ -37,14 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-          <a href="/" className="home-icon">
-            <i className="fas fa-home"></i>
-          </a>
-          <a href="/browse" className="search-icon">
-            <i className="fas fa-search"></i>
-          </a>
-        </nav>
+        <Navigation />
         <Router>
           <Switch>
             <Route

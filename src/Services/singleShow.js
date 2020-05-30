@@ -5,8 +5,8 @@ const singleShow = (showId) =>
     axios
       .get(`https://api.tvmaze.com/shows/${showId}?embed[]=seasons&embed[]=cast`)
       .then((result) => {
-        const beers = result.data;
-        resolve(beers);
+        const shows = result.data;
+        resolve(shows);
       })
       .catch(reject);
   });

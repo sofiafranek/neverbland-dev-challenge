@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './style.scss';
 
-import bannerImg from './../../felix-mooneeram-evlkOfkQ5rE-unsplash.jpg';
+import bannerImg from './../../browse-header.jpg';
 
 import Search from './../../Components/Search';
 import ShowCard from './../../Components/ShowCard';
@@ -35,8 +36,6 @@ class Browse extends Component {
     event.preventDefault();
     const filter = event.currentTarget.dataset.id;
 
-    console.log(filter, 'filter');
-
     this.setState({
       filter,
     });
@@ -46,14 +45,9 @@ class Browse extends Component {
     return (
       <>
         <header
-          className="centered-header"
+          className="centered-header browse-banner-image"
           style={{
             backgroundImage: `url(${bannerImg})`,
-            backgroundSize: 'cover',
-            backgroundColor: 'black',
-            opacity: '0.3',
-            minHeight: '300px',
-            backgroundPosition: 'center',
           }}
         ></header>
         <section className="browse-header">

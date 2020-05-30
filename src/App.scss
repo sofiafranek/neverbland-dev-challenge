@@ -10,6 +10,33 @@
   }
 }
 
+header {
+  background-color: #ededed;
+  padding: 60px 50px;
+  min-height: 230px;
+  h3 {
+    margin-top: 35px;
+  }
+}
+
+main {
+  margin: 0 50px;
+  ul {
+    padding-left: 0;
+    list-style: none;
+    li {
+      margin-bottom: 7.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        text-align: right;
+        width: 33.3%;
+      }
+    }
+  }
+}
+
 #box {
   box-shadow: 0 5px 50px 50px #b9b3b4;
 }
@@ -17,7 +44,7 @@
 nav {
   a {
     position: absolute;
-    right: 20px;
+    right: 50px;
     top: 25px;
   }
   .home-icon {
@@ -38,92 +65,6 @@ nav {
       font-size: 1.2em;
       color: #484848;
     }
-  }
-}
-
-.underline {
-  border-bottom: 1px solid lightgray;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  span {
-    margin: 25px 10px;
-    font-size: 0.9em;
-  }
-}
-
-.episodes-container {
-  a {
-    width: 33.3%;
-    position: relative;
-  }
-  section {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    right: 10px;
-    div {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-      span {
-        color: #aeaeae;
-        font-size: 0.8em;
-      }
-    }
-  }
-}
-
-.browse-header {
-  position: absolute;
-  top: 110px;
-  left: 50px;
-  right: 50px;
-  text-align: center;
-  ul {
-    padding-bottom: 20px;
-    margin-top: 35px;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-evenly;
-    cursor: pointer;
-  }
-  input {
-    background-color: transparent;
-    border-bottom: 0.5px solid #b0b0b0;
-  }
-}
-
-.overlay-section {
-  margin: 0 10px;
-  position: absolute;
-  top: 85px;
-  left: 0;
-  right: 0;
-  color: #e5e5e5;
-  text-align: center;
-  h1 {
-    font-size: 2em;
-  }
-  h2 {
-    font-size: 0.9em;
-    max-width: 600px;
-    margin: auto;
-    margin-top: 15px;
-    line-height: 30px;
-  }
-  button {
-    background-color: #650d1c;
-    border: none;
-    padding: 15px 30px;
-    text-transform: uppercase;
-    color: #e5e5e5;
-    margin-top: 15px;
-    border-radius: 15px;
-    font-weight: 700;
   }
 }
 
@@ -206,142 +147,12 @@ nav {
   }
 }
 
-.single-episodes {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  box-shadow: 0 5px 8px -4px #565656;
-  padding: 5px 10px;
-  margin-bottom: 20px;
-  color: #e5e5e5;
-  background-color: #101010;
-  p {
-    width: 100%;
-  }
-  .allign {
-    text-align: left;
-  }
-  .image-text {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    span {
-      font-size: 0.8em;
-    }
-  }
-}
-
-.cast-image {
-  border-radius: 50%;
-  overflow: hidden;
-  max-width: 60px;
-  max-height: 60px;
-  img {
-    max-width: 60px;
-  }
-}
-
-.show-introduction {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 140px;
-  margin: 0 50px;
-  color: #e5e5e5;
-  margin-bottom: 20px;
-  img {
-    margin: auto;
-    display: block;
-    max-width: 280px;
-    position: relative;
-  }
-  h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
-  p {
-    margin-bottom: 50px;
-  }
-  .minimum-height {
-    max-height: initial;
-    margin-bottom: 50px;
-  }
-}
-
-.single-show-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 70px;
-  section {
-    width: 100%;
-  }
-}
-
-.character-name {
-  color: darkgray;
-}
-
-.showcard {
-  margin-right: 0;
-  color: #e5e5e5;
-  ul {
-    padding-left: 0;
-    list-style: none;
-    font-size: 0.8em;
-  }
-  h6 {
-    margin-top: 15px;
-  }
-  span {
-    margin-right: 3.5px;
-  }
-}
-
-.single-show-header {
-  padding-bottom: 0;
-}
-
-.show-info-container {
-  p {
-    width: 100%;
-    min-width: 350px;
-  }
-}
-
-@media (min-width: 980px) {
-  .single-show-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .underline {
-    width: 420px;
-  }
-  .overlay-section {
-    h2 {
-      font-size: 1.2em;
-    }
-  }
-}
-
-@media (min-width: 750px) {
-  .show-introduction {
-    flex-direction: row;
-    margin-bottom: 90px;
-    img {
-      margin-right: 50px;
-      display: initial;
-    }
-    .minimum-height {
-      max-height: 330px;
-    }
-  }
-  .display-flex.single-episodes {
-    flex-direction: row;
-    p {
-      width: 25% !important;
-    }
-    .allign {
-      text-align: right;
+@media (min-width: 519px) {
+  .container {
+    text-align: initial;
+    h3 {
+      left: auto;
+      right: auto;
     }
   }
 }
@@ -349,26 +160,5 @@ nav {
 @media (min-width: 500px) {
   .display-flex {
     flex-direction: row;
-  }
-  .showcard {
-    margin-bottom: 50px;
-  }
-  .display-flex.single-episodes {
-    p {
-      width: 50%;
-    }
-  }
-  .overlay-section {
-    top: 120px;
-    h2 {
-      font-size: 1.1em;
-    }
-  }
-  .container {
-    text-align: initial;
-    h3 {
-      left: auto;
-      right: auto;
-    }
   }
 }

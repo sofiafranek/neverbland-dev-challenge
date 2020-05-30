@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 const ShowCard = (props) => {
   const rating = Math.floor(props.rating.average / 2);
