@@ -187,9 +187,6 @@
       width: 33.3% !important;
     }
   }
-}
-
-@media (min-width: 750px) {
   .single-show-container {
     margin-top: 70px;
   }
@@ -203,6 +200,9 @@
     right: auto;
     left: auto;
   }
+}
+
+@media (min-width: 750px) {
   .show-introduction {
     flex-direction: row;
     margin-bottom: 90px;
