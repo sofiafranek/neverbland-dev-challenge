@@ -1,0 +1,38 @@
+.single-cast {
+  margin: 0;
+}
+
+.breadcrumb {
+  padding-top: 30px;
+  a {
+    color: white;
+  }
+  span {
+    text-decoration: underline;
+  }
+}
+
+.cast-introduction {
+  position: absolute;
+  top: 85px;
+  left: 50px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  .cast-introduction {
+    top: 150px;
+    flex-direction: row;
+    img {
+      margin: 0;
+      margin-right: 70px;
+    }
+  }
+}

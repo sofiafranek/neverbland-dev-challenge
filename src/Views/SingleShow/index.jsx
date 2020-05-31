@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './style.scss';
 
+import { Link } from 'react-router-dom';
+
 import { singleShow } from './../../Services/singleShow';
 import { getCasts } from './../../Services/casts';
 import { getSeasons } from './../../Services/seasons';
@@ -188,15 +190,23 @@ class SingleShow extends Component {
               <ul>
                 {cast.map((single, i) => {
                   return (
-                    <li key={this.randomKey(20)}>
-                      <div className="cast-image">
-                        <img src={single.person.image.medium} alt={i} />
-                      </div>
-                      <div>{single.person.name}</div>
-                      <div>
-                        <small className="character-name"> - {single.character.name}</small>
-                      </div>
-                    </li>
+                    <Link
+                      to={{
+                        pathname: `/show/${this.props.match.params.id}/cast/${this.state.singleShow.name}/${single.person.id}`,
+                        state: { single },
+                      }}
+                      key={this.randomKey(20)}
+                    >
+                      <li>
+                        <div className="cast-image">
+                          <img src={single.person.image.medium} alt={i} />
+                        </div>
+                        <div className="cast-name">{single.person.name}</div>
+                        <div>
+                          <small className="character-name"> - {single.character.name}</small>
+                        </div>
+                      </li>
+                    </Link>
                   );
                 })}
               </ul>

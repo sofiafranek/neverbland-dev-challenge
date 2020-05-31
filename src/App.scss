@@ -41,33 +41,6 @@ main {
   box-shadow: 0 5px 50px 50px #b9b3b4;
 }
 
-nav {
-  a {
-    position: absolute;
-    right: 50px;
-    top: 25px;
-  }
-  .home-icon {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 1;
-    i {
-      font-size: 1.6em;
-      color: #e5e5e5;
-    }
-  }
-  .search-icon {
-    z-index: 1;
-    i {
-      font-size: 1.2em;
-      color: #484848;
-    }
-  }
-}
-
 .overlay {
   background-color: black;
 }
