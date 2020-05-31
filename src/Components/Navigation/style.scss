@@ -2,6 +2,7 @@ nav {
   a {
     position: absolute;
     top: 25px;
+    z-index: 1;
   }
   .logo {
     left: 50px;
@@ -14,14 +15,12 @@ nav {
     left: 100px;
     right: 100px;
     text-align: center;
-    z-index: 1;
     i {
       font-size: 1.6em;
       color: #e5e5e5;
     }
   }
   .search-icon {
-    z-index: 1;
     right: 50px;
     i {
       font-size: 1.2em;

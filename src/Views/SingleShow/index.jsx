@@ -74,6 +74,10 @@ class SingleShow extends Component {
     });
   };
 
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   render() {
     const single = this.state.singleShow;
     const cast = this.state.cast;
@@ -196,6 +200,7 @@ class SingleShow extends Component {
                         state: { single },
                       }}
                       key={this.randomKey(20)}
+                      onClick={this.scrollToTop}
                     >
                       <li>
                         <div className="cast-image">
@@ -236,6 +241,7 @@ class SingleShow extends Component {
                         state: { single },
                       }}
                       key={this.randomKey(20)}
+                      onClick={this.scrollToTop}
                     >
                       <div className="overlay">
                         <div
