@@ -1,3 +1,4 @@
+/*  Common styles used across the application on multiple views */
 .display-flex {
   display: flex;
   flex-direction: column;
@@ -88,6 +89,9 @@ main {
   img {
     margin: auto;
     margin-bottom: 45px;
+  }
+  p {
+    font-size: 1em;
   }
 }
 

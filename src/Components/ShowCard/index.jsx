@@ -2,6 +2,7 @@ import React from 'react';
 import './style.scss';
 
 const ShowCard = (props) => {
+  // calculating the rating and adding fontawesome stars to represent
   const rating = Math.floor(props.rating.average / 2);
   const empty = 5 - rating;
   const stars = [];
