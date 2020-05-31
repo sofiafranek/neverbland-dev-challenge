@@ -66,7 +66,7 @@ class SingleEpisode extends Component {
             <small>
               Aired: {episode.airtime} - {episode.airdate}
             </small>
-            <p>{episode.summary}</p>
+            <p dangerouslySetInnerHTML={{ __html: episode.summary }}></p>
           </div>
         </section>
         <section className="associated-information">

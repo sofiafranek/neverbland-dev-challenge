@@ -159,7 +159,7 @@ class SingleShow extends Component {
             </small>
             <h1>{single.name}</h1>
             <small>{single.premiered}</small>
-            <p>{single.summary}</p>
+            <p dangerouslySetInnerHTML={{ __html: single.summary }}></p>
           </div>
         </section>
         <main>
