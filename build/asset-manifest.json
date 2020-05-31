@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e8e2f1be.chunk.css",
+    "main.js": "/static/js/main.ab47451f.chunk.js",
+    "main.js.map": "/static/js/main.ab47451f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f1bc8154.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f1bc8154.js.map",
+    "static/js/2.c06eada5.chunk.js": "/static/js/2.c06eada5.chunk.js",
+    "static/js/2.c06eada5.chunk.js.map": "/static/js/2.c06eada5.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b16d95142fa3fa2dd75bfa32d978072d.js": "/precache-manifest.b16d95142fa3fa2dd75bfa32d978072d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e8e2f1be.chunk.css.map": "/static/css/main.e8e2f1be.chunk.css.map",
+    "static/js/2.c06eada5.chunk.js.LICENSE.txt": "/static/js/2.c06eada5.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/static/media/Gordita Regular.1af86f05.woff",
+    "static/media/browse-header.jpg": "/static/media/browse-header.42f99941.jpg",
+    "static/media/homepage-header.jpg": "/static/media/homepage-header.c0166256.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f1bc8154.js",
+    "static/js/2.c06eada5.chunk.js",
+    "static/css/main.e8e2f1be.chunk.css",
+    "static/js/main.ab47451f.chunk.js"
+  ]
+}
