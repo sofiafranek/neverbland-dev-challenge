@@ -130,13 +130,17 @@
     margin-bottom: 10px;
   }
   p {
-    // margin-bottom: 50px;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 11;
     -webkit-box-orient: vertical;
     font-size: 1em;
+    margin-top: 0;
+  }
+  small {
+    display: block;
+    margin-bottom: 20px;
   }
   .minimum-height {
     max-height: initial;

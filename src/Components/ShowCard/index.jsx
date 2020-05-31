@@ -1,6 +1,8 @@
 import React from 'react';
 import './style.scss';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 const ShowCard = (props) => {
   // calculating the rating and adding fontawesome stars to represent
   const rating = Math.floor(props.rating.average / 2);
@@ -17,7 +19,8 @@ const ShowCard = (props) => {
   return (
     <a href={`/show/${props.id}`}>
       <div className="showcard hvr-float">
-        <img src={props.image.medium} alt={props.name} />
+        <LazyLoadImage alt={props.name} src={props.image.medium} />
+        {/* <img src={props.image.medium} alt={props.name} /> */}
         <h4>{props.name}</h4>
         {stars.map((star, index) => {
           return <span key={index}>{star}</span>;
