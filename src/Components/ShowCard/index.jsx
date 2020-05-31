@@ -16,7 +16,7 @@ const ShowCard = (props) => {
   return (
     <a href={`/show/${props.id}`}>
       <div className="showcard hvr-float">
-        <img src={props.image.medium} alt="" />
+        <img src={props.image.medium} alt={props.name} />
         <h4>{props.name}</h4>
         {stars.map((star, index) => {
           return <span key={index}>{star}</span>;

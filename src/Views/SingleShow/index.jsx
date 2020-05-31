@@ -147,7 +147,7 @@ class SingleShow extends Component {
         </div>
         <section className="show-introduction">
           <div className="minimum-height">
-            <img src={showImg} alt="" />
+            <img src={showImg} alt={single.name} />
           </div>
           <div>
             <small className="star-ratings">
@@ -204,7 +204,7 @@ class SingleShow extends Component {
                     >
                       <li>
                         <div className="cast-image">
-                          <img src={single.person.image.medium} alt={i} />
+                          <img src={single.person.image.medium} alt={single.person.name} />
                         </div>
                         <div className="cast-name">{single.person.name}</div>
                         <div>
@@ -231,7 +231,6 @@ class SingleShow extends Component {
             </select>
             <div className="display-flex episodes-container">
               {episodes.map((single) => {
-                console.log(single, 'episodes');
                 // Need to have an error message
                 if (this.state.filter === `Season ${single.season}`) {
                   return (

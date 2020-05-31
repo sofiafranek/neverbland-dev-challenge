@@ -39,16 +39,21 @@ class SingleEpisode extends Component {
       <main className="single-cast episode">
         <header className="single-show-header" id="box">
           <div className="breadcrumb">
-            <a href="/">Home // </a>
+            <a href="/" className="hvr-underline-from-left">
+              Home
+            </a>
+            <span>/</span>
             <a
               href={`/show/${this.props.match.params.id}`}
-            >{`${this.props.match.params.name} // `}</a>
-            <span href="/">{episode.name}</span>
+              className="hvr-underline-from-left"
+            >{`${this.props.match.params.name}`}</a>
+            <span>/</span>
+            <small href="/">{episode.name}</small>
           </div>
         </header>
         <section className="header-introduction">
           <div className="episode-header-img">
-            <img src={episode.image.original} alt="" />
+            <img src={episode.image.original} alt={episode.name} />
           </div>
           <div>
             <h1>
@@ -70,7 +75,6 @@ class SingleEpisode extends Component {
           </h5>
           <div className="cast-container episodes-associate-container">
             {this.state.episodes.map((single, i) => {
-              console.log(single, 'single');
               if (single.season === episode.season) {
                 return (
                   <Link

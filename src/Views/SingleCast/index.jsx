@@ -39,51 +39,58 @@ class SingleCast extends Component {
     const cast = this.state.cast;
 
     return (
-      <main className="single-cast">
+      <>
         <header className="single-show-header" id="box">
           <div className="breadcrumb">
-            <a href="/">Home // </a>
+            <a href="/" className="hvr-underline-from-left">
+              Home
+            </a>
+            <span>/</span>
             <a
               href={`/show/${this.props.match.params.id}`}
-            >{`${this.props.match.params.name} // `}</a>
-            <span href="/">{person.name}</span>
+              className="hvr-underline-from-left"
+            >{`${this.props.match.params.name}`}</a>{' '}
+            <span>/</span>
+            <small href="/">{person.name}</small>
           </div>
         </header>
-        <section className="header-introduction">
-          <img src={person.image.medium} alt="" />
-          <div>
-            <h1>{person.name}</h1>
-            <small>Birthday: {person.birthday}</small>
-            <p>Born in: {person.country.name}</p>
-            <br />
-            <p>Character played: {character.name}</p>
-          </div>
-        </section>
-        <section className="associated-information">
-          <h5>Associated Cast Members of {this.props.match.params.name}</h5>
-          <div className="cast-container">
-            {cast.map((single, i) => {
-              return (
-                <Link
-                  to={{
-                    pathname: `/show/${this.props.match.params.id}/cast/${this.props.match.params.name}/${single.person.id}`,
-                    state: { single },
-                  }}
-                  key={i}
-                  onClick={this.scrollToTop}
-                >
-                  <div className="cast-overlay">
-                    <div className="associate-cast">
-                      <img src={single.person.image.medium} alt="" />
-                      <h5>{single.person.name}</h5>
+        <main className="single-cast">
+          <section className="header-introduction">
+            <img src={person.image.medium} alt={person.name} />
+            <div>
+              <h1>{person.name}</h1>
+              <small>Birthday: {person.birthday}</small>
+              <p>Born in: {person.country.name}</p>
+              <br />
+              <p>Character played: {character.name}</p>
+            </div>
+          </section>
+          <section className="associated-information">
+            <h5>Associated Cast Members of {this.props.match.params.name}</h5>
+            <div className="cast-container">
+              {cast.map((single, i) => {
+                return (
+                  <Link
+                    to={{
+                      pathname: `/show/${this.props.match.params.id}/cast/${this.props.match.params.name}/${single.person.id}`,
+                      state: { single },
+                    }}
+                    key={i}
+                    onClick={this.scrollToTop}
+                  >
+                    <div className="cast-overlay">
+                      <div className="associate-cast">
+                        <img src={single.person.image.medium} alt={single.person.name} />
+                        <h5>{single.person.name}</h5>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      </main>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        </main>
+      </>
     );
   }
 }

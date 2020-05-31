@@ -33,6 +33,10 @@
     margin-top: 15px;
     border-radius: 15px;
     font-weight: 700;
+    transition: 0.3s;
+  }
+  button:hover {
+    background-color: #be1e3a;
   }
 }
 

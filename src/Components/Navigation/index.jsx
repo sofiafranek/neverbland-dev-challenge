@@ -4,13 +4,13 @@ import './style.scss';
 const Navigation = () => {
   return (
     <nav>
-      <a href="/" className="logo">
+      <a href="/" className="logo hvr-float">
         TV Bland
       </a>
       {/* <a href="/" className="home-icon">
         <i className="fas fa-home"></i>
       </a> */}
-      <a href="/browse" className="search-icon">
+      <a href="/browse" className="search-icon hvr-float">
         <i className="fas fa-search"></i>
       </a>
     </nav>

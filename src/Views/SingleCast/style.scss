@@ -1,5 +1,5 @@
 .associated-information {
-  margin: 70px 75px 50px;
+  margin: 70px 50px 50px;
   h5 {
     margin-bottom: 30px;
   }
@@ -15,7 +15,7 @@
     color: white;
   }
   span {
-    text-decoration: underline;
+    margin: 0 10px;
   }
 }
 
@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   .associate-cast {
     position: relative;
     display: flex;
@@ -52,5 +52,14 @@
   }
   .associate-cast:hover {
     opacity: 0.9;
+  }
+}
+
+@media (min-width: 500px) {
+  .associated-information {
+    margin: 70px 75px 50px;
+    .cast-container {
+      justify-content: space-between;
+    }
   }
 }

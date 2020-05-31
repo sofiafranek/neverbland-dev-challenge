@@ -4,6 +4,10 @@
   opacity: 0.3;
   min-height: 475px;
   background-position: center;
+  padding-bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .seasons-episodes-container {
@@ -127,6 +131,11 @@
   }
   p {
     margin-bottom: 50px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
   }
   .minimum-height {
     max-height: initial;
@@ -145,10 +154,6 @@
 
 .character-name {
   color: darkgray;
-}
-
-.single-show-header {
-  padding-bottom: 0;
 }
 
 .show-info-container {
@@ -187,6 +192,11 @@
 @media (min-width: 750px) {
   .single-show-container {
     margin-top: 70px;
+  }
+  .single-show-header {
+    position: initial;
+    left: auto;
+    right: auto;
   }
   #single-show-overlay {
     position: initial;
