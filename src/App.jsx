@@ -10,6 +10,7 @@ import HomePage from './Views/Homepage';
 import SingleShow from './Views/SingleShow';
 import Browse from './Views/Browse';
 import SingleCast from './Views/SingleCast';
+import SingleEpisode from './Views/SingleEpisode';
 
 import Navigation from './Components/Navigation';
 
@@ -61,6 +62,11 @@ class App extends Component {
             <Route
               path="/show/:id/cast/:name/:castID"
               render={(props) => <SingleCast {...props} shows={this.state.shows} />}
+              exact
+            />
+            <Route
+              path="/show/:id/:name/episode/:episodeID"
+              render={(props) => <SingleEpisode {...props} shows={this.state.shows} />}
               exact
             />
           </Switch>

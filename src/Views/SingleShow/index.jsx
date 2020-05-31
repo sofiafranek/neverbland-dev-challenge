@@ -226,10 +226,17 @@ class SingleShow extends Component {
             </select>
             <div className="display-flex episodes-container">
               {episodes.map((single) => {
+                console.log(single, 'episodes');
                 // Need to have an error message
                 if (this.state.filter === `Season ${single.season}`) {
                   return (
-                    <a href={single.url} key={this.randomKey(20)}>
+                    <Link
+                      to={{
+                        pathname: `/show/${this.props.match.params.id}/${this.state.singleShow.name}/episode/${single.id}`,
+                        state: { single },
+                      }}
+                      key={this.randomKey(20)}
+                    >
                       <div className="overlay">
                         <div
                           className="single-episodes hvr-grow single-episode-image"
@@ -252,7 +259,8 @@ class SingleShow extends Component {
                           <span>{single.runtime} Minutes</span>
                         </div>
                       </section>
-                    </a>
+                      {/* </a> */}
+                    </Link>
                   );
                 }
               })}

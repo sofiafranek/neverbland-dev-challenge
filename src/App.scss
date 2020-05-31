@@ -75,6 +75,20 @@ main {
   }
 }
 
+.header-introduction {
+  position: absolute;
+  top: 85px;
+  left: 50px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+
 .navigation-arrows {
   z-index: 1;
   display: flex;
@@ -133,5 +147,13 @@ main {
 @media (min-width: 500px) {
   .display-flex {
     flex-direction: row;
+  }
+  .header-introduction {
+    top: 180px;
+    flex-direction: row;
+    img {
+      margin: 0;
+      margin-right: 70px;
+    }
   }
 }

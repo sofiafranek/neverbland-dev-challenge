@@ -13,7 +13,7 @@ const SingleCast = (props) => {
           <span href="/">{person.name}</span>
         </div>
       </header>
-      <section className="cast-introduction">
+      <section className="header-introduction">
         <img src={person.image.medium} alt="" />
         <div>
           <h1>{person.name}</h1>
