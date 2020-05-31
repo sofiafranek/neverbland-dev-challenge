@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './style.scss';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { Link } from 'react-router-dom';
 
 import { singleShow } from './../../Services/singleShow';
@@ -147,7 +149,7 @@ class SingleShow extends Component {
         </div>
         <section className="show-introduction">
           <div className="minimum-height">
-            <img src={showImg} alt={single.name} />
+            <LazyLoadImage src={showImg} alt={single.name} />
           </div>
           <div>
             <small className="star-ratings">
@@ -204,7 +206,10 @@ class SingleShow extends Component {
                     >
                       <li>
                         <div className="cast-image">
-                          <img src={single.person.image.medium} alt={single.person.name} />
+                          <LazyLoadImage
+                            src={single.person.image.medium}
+                            alt={single.person.name}
+                          />
                         </div>
                         <div className="cast-name">{single.person.name}</div>
                         <div>

@@ -11,15 +11,24 @@ nav {
     }
   }
   .logo {
-    left: 50px;
+    left: 20px;
     color: #848484;
     font-size: 1.1em;
   }
   .search-icon {
-    right: 50px;
+    right: 20px;
     i {
       font-size: 1.2em;
       color: #848484;
     }
+  }
+}
+
+@media (min-width: 500px) {
+  .logo {
+    left: 50px;
+  }
+  .search-icon {
+    right: 50px;
   }
 }

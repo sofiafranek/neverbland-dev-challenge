@@ -20,7 +20,6 @@ const ShowCard = (props) => {
     <a href={`/show/${props.id}`}>
       <div className="showcard hvr-float">
         <LazyLoadImage alt={props.name} src={props.image.medium} />
-        {/* <img src={props.image.medium} alt={props.name} /> */}
         <h4>{props.name}</h4>
         {stars.map((star, index) => {
           return <span key={index}>{star}</span>;

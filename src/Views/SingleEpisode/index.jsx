@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './style.scss';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { Link } from 'react-router-dom';
 
 import { getEpisodes } from './../../Services/episodes';
@@ -53,7 +55,7 @@ class SingleEpisode extends Component {
         </header>
         <section className="header-introduction">
           <div className="episode-header-img">
-            <img src={episode.image.original} alt={episode.name} />
+            <LazyLoadImage src={episode.image.original} alt={episode.name} />
           </div>
           <div>
             <h1>

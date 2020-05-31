@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './style.scss';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { Link } from 'react-router-dom';
 
 import { getCasts } from './../../Services/casts';
@@ -56,7 +58,7 @@ class SingleCast extends Component {
         </header>
         <main className="single-cast">
           <section className="header-introduction">
-            <img src={person.image.medium} alt={person.name} />
+            <LazyLoadImage src={person.image.medium} alt={person.name} />
             <div>
               <h1>{person.name}</h1>
               <small>Birthday: {person.birthday}</small>
@@ -80,7 +82,7 @@ class SingleCast extends Component {
                   >
                     <div className="cast-overlay">
                       <div className="associate-cast">
-                        <img src={single.person.image.medium} alt={single.person.name} />
+                        <LazyLoadImage src={single.person.image.medium} alt={single.person.name} />
                         <h5>{single.person.name}</h5>
                       </div>
                     </div>
