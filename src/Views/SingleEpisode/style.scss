@@ -1,5 +1,13 @@
 .episode section img {
   max-width: 450px;
+  min-width: 450px;
   max-height: 260px;
-  margin-right: 35px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 750px) {
+  .episode section img {
+    margin-right: 35px;
+  }
 }

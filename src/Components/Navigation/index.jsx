@@ -7,9 +7,9 @@ const Navigation = () => {
       <a href="/" className="logo">
         TV Bland
       </a>
-      <a href="/" className="home-icon">
+      {/* <a href="/" className="home-icon">
         <i className="fas fa-home"></i>
-      </a>
+      </a> */}
       <a href="/browse" className="search-icon">
         <i className="fas fa-search"></i>
       </a>

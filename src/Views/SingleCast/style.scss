@@ -1,3 +1,10 @@
+.associated-information {
+  margin: 70px 75px 0;
+  h5 {
+    margin-bottom: 30px;
+  }
+}
+
 .single-cast {
   margin: 0;
 }
@@ -9,5 +16,40 @@
   }
   span {
     text-decoration: underline;
+  }
+}
+
+.cast-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .associate-cast {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 210px;
+    margin: 0 0 15px 0;
+    transition: 0.2s;
+    h5 {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 1em;
+      color: white;
+    }
+  }
+  .associate-cast:hover {
+    h5 {
+      display: block;
+    }
+    background-color: black;
+    cursor: pointer;
+  }
+  .associate-cast:hover {
+    opacity: 0.8;
   }
 }
