@@ -69,7 +69,8 @@ const SingleEpisode = (props) => {
         <h5>
           Associated Episodes of Season {episode.season} on {props.match.params.name}
         </h5>
-        <div className="cast-container episodes-associate-container">
+        {/* display-flex episodes-container */}
+        <div className="cast-container episodes-associate-container" id="associated-episodes">
           {episodes.map((single, i) => {
             if (single.season === episode.season) {
               return (
@@ -81,22 +82,7 @@ const SingleEpisode = (props) => {
                   key={i}
                   onClick={scrollToTop}
                 >
-                  {/* <Episode {...single} /> */}
-                  <div className="overlay">
-                    <div
-                      className="associated-episodes"
-                      style={{
-                        backgroundImage: `url(${
-                          single.image !== null ? single.image.original : ''
-                        })`,
-                      }}
-                    >
-                      <div>
-                        <h5>{single.name}</h5>
-                        <h5>Episode {single.number}</h5>
-                      </div>
-                    </div>
-                  </div>
+                  <Episode {...single} />
                 </Link>
               );
             }

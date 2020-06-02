@@ -1,40 +1,28 @@
-.episodes-associate-container {
-  .associated-episodes {
-    background-size: cover;
-    background-position: top;
-    min-height: 250px;
-    width: 100%;
-    opacity: 0.7;
+#associated-episodes {
+  a {
     position: relative;
-    div {
-      display: none;
+    section {
       position: absolute;
-      bottom: -15px;
-      left: 15px;
-      right: 15px;
-      text-align: center;
-      font-size: 1em;
-      color: white;
-      margin: 0;
+      bottom: 30px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8em;
+    }
+  }
+  .image-text {
+    display: flex;
+    flex-direction: column;
+    color: lightgray;
+    span {
+      display: block;
     }
   }
 }
 
 .episode-header-img {
   align-self: center;
-}
-
-.associated-episodes:hover {
-  div {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9em;
-  }
-  background-color: black;
-  cursor: pointer;
-}
-.associated-episodes:hover {
-  opacity: 0.8;
 }
 
 .episode section img {
