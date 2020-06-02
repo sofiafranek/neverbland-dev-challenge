@@ -33,10 +33,7 @@ const Homepage = (props) => {
           {props.shows.map((show) => {
             // showing the lastest seasons that have premiered by date
             if (show.premiered > '2014-01-12') {
-              // only showing data that is complete this removes any seasons without a rating
-              if (show.rating.average !== null) {
-                return <ShowCard key={show.id} {...show} />;
-              }
+              return <ShowCard key={show.id} {...show} />;
             }
           })}
         </section>

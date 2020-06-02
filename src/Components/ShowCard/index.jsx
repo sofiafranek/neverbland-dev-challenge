@@ -24,9 +24,13 @@ const ShowCard = (props) => {
         {stars.map((star, index) => {
           return <span key={index}>{star}</span>;
         })}
-        {emptyStars.map((star, index) => {
-          return <span key={index}>{star}</span>;
-        })}
+        {emptyStars.length === 5 ? (
+          <small>No Rating</small>
+        ) : (
+          emptyStars.map((star, index) => {
+            return <span key={index}>{star}</span>;
+          })
+        )}
         <h6>{Object.values(props.genres).join(' | ')}</h6>
       </div>
     </a>

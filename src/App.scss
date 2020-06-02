@@ -129,7 +129,9 @@ main {
   section {
     position: absolute;
     top: -70px;
-    justify-content: space-between;
+    max-width: 1200px;
+    justify-content: space-around;
+    margin: auto;
     width: 100%;
   }
   h4 {

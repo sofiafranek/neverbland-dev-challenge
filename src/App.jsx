@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 
 import { Route, Switch } from 'react-router';
@@ -14,66 +14,49 @@ import SingleEpisode from './Views/SingleEpisode';
 
 import Navigation from './Components/Navigation';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      shows: [],
-    };
-  }
+const App = () => {
+  const [shows, setShows] = useState([]);
 
-  componentDidMount() {
-    this.fetchData();
-  }
+  useEffect(() => {
+    fetchData();
+  });
 
-  fetchData() {
+  const fetchData = () => {
     getShows()
       .then((shows) => {
-        this.setState({
-          shows,
-        });
+        setShows(shows);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
 
-  render() {
-    return (
-      <div className="App">
-        <Navigation />
-        <Router>
-          <Switch>
-            <Route
-              path="/"
-              render={(props) => <HomePage {...props} shows={this.state.shows} />}
-              exact
-            />
-            <Route
-              path="/browse"
-              render={(props) => <Browse {...props} shows={this.state.shows} />}
-              exact
-            />
-            <Route
-              path="/show/:id"
-              render={(props) => <SingleShow {...props} shows={this.state.shows} />}
-              exact
-            />
-            <Route
-              path="/show/:id/cast/:name/:castID"
-              render={(props) => <SingleCast {...props} shows={this.state.shows} />}
-              exact
-            />
-            <Route
-              path="/show/:id/:name/episode/:episodeID"
-              render={(props) => <SingleEpisode {...props} shows={this.state.shows} />}
-              exact
-            />
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <Navigation />
+      <Router>
+        <Switch>
+          <Route path="/" render={(props) => <HomePage {...props} shows={shows} />} exact />
+          <Route path="/browse" render={(props) => <Browse {...props} shows={shows} />} exact />
+          <Route
+            path="/show/:id"
+            render={(props) => <SingleShow {...props} shows={shows} />}
+            exact
+          />
+          <Route
+            path="/show/:id/cast/:name/:castID"
+            render={(props) => <SingleCast {...props} shows={shows} />}
+            exact
+          />
+          <Route
+            path="/show/:id/:name/episode/:episodeID"
+            render={(props) => <SingleEpisode {...props} shows={shows} />}
+            exact
+          />
+        </Switch>
+      </Router>
+    </div>
+  );
+};
 
 export default App;
