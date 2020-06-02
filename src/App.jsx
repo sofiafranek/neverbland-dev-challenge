@@ -33,33 +33,36 @@ const App = () => {
       });
   };
 
-  return (
-    !spinner && (
-      <div className="App loader">
-        <Navigation />
-        <Router>
-          <Switch>
-            <Route path="/" render={(props) => <HomePage {...props} shows={shows} />} exact />
-            <Route path="/browse" render={(props) => <Browse {...props} shows={shows} />} exact />
-            <Route
-              path="/show/:id"
-              render={(props) => <SingleShow {...props} shows={shows} />}
-              exact
-            />
-            <Route
-              path="/show/:id/cast/:name/:castID"
-              render={(props) => <SingleCast {...props} shows={shows} />}
-              exact
-            />
-            <Route
-              path="/show/:id/:name/episode/:episodeID"
-              render={(props) => <SingleEpisode {...props} shows={shows} />}
-              exact
-            />
-          </Switch>
-        </Router>
-      </div>
-    )
+  return !spinner ? (
+    <div className="App">
+      <Navigation />
+      <Router>
+        <Switch>
+          <Route path="/" render={(props) => <HomePage {...props} shows={shows} />} exact />
+          <Route path="/browse" render={(props) => <Browse {...props} shows={shows} />} exact />
+          <Route
+            path="/show/:id"
+            render={(props) => <SingleShow {...props} shows={shows} />}
+            exact
+          />
+          <Route
+            path="/show/:id/cast/:name/:castID"
+            render={(props) => <SingleCast {...props} shows={shows} />}
+            exact
+          />
+          <Route
+            path="/show/:id/:name/episode/:episodeID"
+            render={(props) => <SingleEpisode {...props} shows={shows} />}
+            exact
+          />
+        </Switch>
+      </Router>
+    </div>
+  ) : (
+    <>
+      <div className="loader"></div>
+      <h1 className="loader-title">TV Bland</h1>
+    </>
   );
 };
 

@@ -1,15 +1,24 @@
 /*  Common styles used across the application on multiple views */
 
+.loader-title {
+  position: absolute;
+  left: 49%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4em;
+  color: #282828;
+}
+
 .loader:empty {
   position: absolute;
-  top: calc(50% - 4em);
-  left: calc(50% - 4em);
-  width: 6em;
-  height: 6em;
-  border: 1.1em solid rgba(0, 0, 0, 0.2);
-  border-left: 1.1em solid #000000;
+  top: calc(50% - 3em);
+  left: calc(50% - 3em);
+  width: 3em;
+  height: 3em;
+  border: 0.8em solid rgba(0, 0, 0, 0.2);
+  border-left: 0.8em solid #ededed;
   border-radius: 50%;
-  animation: load8 1.1s infinite linear;
+  animation: load8 1.4s infinite linear;
 }
 
 @keyframes load8 {
