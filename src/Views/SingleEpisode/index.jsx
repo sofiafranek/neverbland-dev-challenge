@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import { getEpisodes } from './../../Services/episodes';
 
+import Episode from '../../Components/Episode';
+
 const SingleEpisode = (props) => {
   const [episodes, setEpisodes] = useState([]);
 
@@ -79,6 +81,7 @@ const SingleEpisode = (props) => {
                   key={i}
                   onClick={scrollToTop}
                 >
+                  {/* <Episode {...single} /> */}
                   <div className="overlay">
                     <div
                       className="associated-episodes"

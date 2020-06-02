@@ -1,38 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: '',
-    };
-  }
+const Search = (props) => {
+  const [search, setSearch] = useState('');
 
-  startSearch = (event) => {
+  const startSearch = (event) => {
     const search = event.target.value;
-    this.setState({
-      search,
-    });
-    this.props.search(search);
+    setSearch(search);
+    props.search(search);
   };
 
-  render() {
-    return (
-      <div>
-        <form>
-          <input
-            type="search"
-            name="search"
-            value={this.state.search}
-            onChange={this.startSearch}
-            placeholder="Search..."
-            autoComplete="off"
-          />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <form>
+        <input
+          type="search"
+          name="search"
+          value={search}
+          onChange={startSearch}
+          placeholder="Search..."
+          autoComplete="off"
+        />
+      </form>
+    </div>
+  );
+};
 
 export default Search;

@@ -10,6 +10,8 @@ import { getCasts } from './../../Services/casts';
 import { getSeasons } from './../../Services/seasons';
 import { getEpisodes } from './../../Services/episodes';
 
+import Episode from '../../Components/Episode';
+
 const SingleShow = (props) => {
   const [show, setShow] = useState([]);
   const [cast, setCast] = useState([]);
@@ -211,29 +213,7 @@ const SingleShow = (props) => {
                     key={single.name}
                     onClick={scrollToTop}
                   >
-                    <div className="overlay">
-                      <div
-                        className="single-episodes hvr-grow single-episode-image"
-                        style={{
-                          backgroundImage: `url(${
-                            single.image !== null ? single.image.original : ''
-                          })`,
-                        }}
-                      ></div>
-                    </div>
-                    <section>
-                      <div className="image-text">
-                        <span>
-                          {single.name} {single.number}
-                        </span>
-                        <span>Episode {single.number}</span>
-                      </div>
-                      <div className="image-text">
-                        <span>{single.airdate}</span>
-                        <span>{single.runtime} Minutes</span>
-                      </div>
-                    </section>
-                    {/* </a> */}
+                    <Episode {...single} />
                   </Link>
                 );
               }
